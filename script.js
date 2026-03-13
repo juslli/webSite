@@ -1,171 +1,140 @@
-// MENU MOBILE
+// TEXTO DIGITANDO
+const words = ["HTML", "CSS", "JavaScript", "Projetos Reais", "Evolução Constante"];
+let i = 0;
+let j = 0;
+let currentWord = "";
+let deleting = false;
 
-const toggle = document.querySelector(".menu-toggle")
-const menu = document.querySelector(".menu")
+function type() {
+  currentWord = words[i];
 
-toggle.onclick = () => {
-menu.classList.toggle("active")
+  if (deleting) {
+    j--;
+  } else {
+    j++;
+  }
+
+  document.querySelector(".typing").textContent = currentWord.substring(0, j);
+
+  if (!deleting && j === currentWord.length) {
+    deleting = true;
+    setTimeout(type, 1000);
+    return;
+  }
+
+  if (deleting && j === 0) {
+    deleting = false;
+    i++;
+
+    if (i === words.length) {
+      i = 0;
+    }
+  }
+
+  setTimeout(type, deleting ? 60 : 120);
 }
 
-// FECHAR MENU AO CLICAR EM LINK
+type();
 
-document.querySelectorAll(".menu a").forEach(link => {
 
-link.addEventListener("click", () => {
+// MENU MOBILE
+const toggle = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
 
-menu.classList.remove("active")
-
-})
-
-})
+toggle.onclick = () => {
+  menu.classList.toggle("active");
+};
 
 
 // ANIMAÇÃO AO ROLAR A PÁGINA
+function reveal() {
+  const reveals = document.querySelectorAll(".reveal");
 
-function reveal(){
+  reveals.forEach((element) => {
+    const windowHeight = window.innerHeight;
+    const elementTop = element.getBoundingClientRect().top;
+    const revealPoint = 120;
 
-const reveals = document.querySelectorAll(".reveal")
-
-reveals.forEach(element => {
-
-const windowHeight = window.innerHeight
-const elementTop = element.getBoundingClientRect().top
-const revealPoint = 120
-
-if(elementTop < windowHeight - revealPoint){
-
-element.classList.add("active")
-
+    if (elementTop < windowHeight - revealPoint) {
+      element.classList.add("active");
+    }
+  });
 }
 
-})
-
-}
-
-window.addEventListener("scroll", reveal)
-
-reveal()
+window.addEventListener("scroll", reveal);
+reveal();
 
 
 // PARTICLES BACKGROUND
-
 tsParticles.load("particles", {
-
-particles: {
-
-number: {
-value: 70
-},
-
-color: {
-value: "#38bdf8"
-},
-
-shape: {
-type: "circle"
-},
-
-opacity: {
-value: 0.4
-},
-
-size: {
-value: 3
-},
-
-move: {
-enable: true,
-speed: 1,
-direction: "none",
-outModes: {
-default: "out"
-}
-}
-
-},
-
-interactivity: {
-
-events: {
-
-onHover: {
-enable: true,
-mode: "repulse"
-}
-
-},
-
-modes: {
-
-repulse: {
-distance: 80
-}
-
-}
-
-},
-
-background: {
-color: "transparent"
-}
-
-})
+  background: {
+    color: {
+      value: "transparent"
+    }
+  },
+  particles: {
+    number: {
+      value: 60
+    },
+    color: {
+      value: "#38bdf8"
+    },
+    shape: {
+      type: "circle"
+    },
+    opacity: {
+      value: 0.4
+    },
+    size: {
+      value: 3
+    },
+    move: {
+      enable: true,
+      speed: 1
+    },
+    links: {
+      enable: true,
+      distance: 130,
+      color: "#38bdf8",
+      opacity: 0.2,
+      width: 1
+    }
+  }
+});
 
 
 // GITHUB REPOSITÓRIOS AUTOMÁTICOS
+async function carregarRepos() {
+  const reposContainer = document.getElementById("repos");
 
-async function carregarRepos(){
+  try {
+    const resposta = await fetch("https://api.github.com/users/juslli/repos?sort=updated&per_page=6");
 
-const reposContainer = document.getElementById("repos")
+    if (!resposta.ok) {
+      throw new Error("Não foi possível carregar os repositórios.");
+    }
 
-if(!reposContainer) return
+    const repos = await resposta.json();
 
-reposContainer.innerHTML = ""
+    reposContainer.innerHTML = "";
 
-try{
+    repos.forEach(repo => {
+      const card = document.createElement("div");
+      card.classList.add("repo-card");
 
-const resposta = await fetch("https://api.github.com/users/juslli/repos")
+      card.innerHTML = `
+        <h3>${repo.name}</h3>
+        <p>${repo.description ? repo.description : "Repositório sem descrição no momento."}</p>
+        <a class="repo-link" href="${repo.html_url}" target="_blank">Ver no GitHub</a>
+      `;
 
-if(!resposta.ok){
-throw new Error("Erro na API")
+      reposContainer.appendChild(card);
+    });
+
+  } catch (erro) {
+    reposContainer.innerHTML = `<p class="loading">Erro ao carregar repositórios.</p>`;
+    console.error("Erro:", erro);
+  }
 }
 
-let repos = await resposta.json()
-
-// REMOVE FORKS
-repos = repos.filter(repo => !repo.fork)
-
-// ORDENA POR MAIS RECENTES
-repos.sort((a,b)=> new Date(b.updated_at) - new Date(a.updated_at))
-
-repos.slice(0,6).forEach(repo => {
-
-const repoCard = document.createElement("div")
-
-repoCard.classList.add("repo-card")
-
-repoCard.innerHTML = `
-
-<h3>${repo.name}</h3>
-
-<p>${repo.description || "Projeto no GitHub"}</p>
-
-<a href="${repo.html_url}" target="_blank">Ver Repositório</a>
-
-`
-
-reposContainer.appendChild(repoCard)
-
-})
-
-}catch(erro){
-
-console.log("Erro ao carregar repositórios", erro)
-
-reposContainer.innerHTML = "<p>Não foi possível carregar os repositórios.</p>"
-
-}
-
-}
-
-carregarRepos()
+carregarRepos();

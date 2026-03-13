@@ -146,8 +146,10 @@ a {
 }
 
 .gradient-text {
+  color: var(--primary-2);
   background: linear-gradient(90deg, #ffffff, var(--primary-2), #ffffff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -614,3 +616,4 @@ a {
     width: 100%;
   }
 }
+

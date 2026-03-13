@@ -37,9 +37,7 @@ function type() {
     deleting = false;
     i++;
 
-    if (i === words.length) {
-      i = 0;
-    }
+    if (i === words.length) i = 0;
   }
 
   setTimeout(type, deleting ? 70 : 120);
@@ -53,7 +51,6 @@ const menu = document.querySelector(".menu");
 if (toggle && menu) {
   toggle.addEventListener("click", () => {
     menu.classList.toggle("active");
-
     const expanded = toggle.getAttribute("aria-expanded") === "true";
     toggle.setAttribute("aria-expanded", String(!expanded));
   });
@@ -85,32 +82,15 @@ reveal();
 
 if (window.tsParticles) {
   tsParticles.load("particles", {
-    fullScreen: {
-      enable: false
-    },
-    background: {
-      color: "transparent"
-    },
+    fullScreen: { enable: false },
+    background: { color: "transparent" },
     particles: {
-      number: {
-        value: 45
-      },
-      color: {
-        value: ["#ff2f75", "#ff5f9a", "#ffffff"]
-      },
-      shape: {
-        type: "circle"
-      },
-      opacity: {
-        value: 0.28
-      },
-      size: {
-        value: { min: 1, max: 4 }
-      },
-      move: {
-        enable: true,
-        speed: 1.2
-      },
+      number: { value: 45 },
+      color: { value: ["#ff2f75", "#ff5f9a", "#ffffff"] },
+      shape: { type: "circle" },
+      opacity: { value: 0.28 },
+      size: { value: { min: 1, max: 4 } },
+      move: { enable: true, speed: 1.2 },
       links: {
         enable: true,
         distance: 130,
@@ -121,15 +101,10 @@ if (window.tsParticles) {
     },
     interactivity: {
       events: {
-        onHover: {
-          enable: true,
-          mode: "repulse"
-        }
+        onHover: { enable: true, mode: "repulse" }
       },
       modes: {
-        repulse: {
-          distance: 70
-        }
+        repulse: { distance: 70 }
       }
     }
   });
@@ -188,7 +163,6 @@ function createRepoCard(repo) {
 function renderRepos(repos) {
   const reposContainer = document.getElementById("repos");
   if (!reposContainer) return;
-
   reposContainer.innerHTML = repos.map(createRepoCard).join("");
 }
 
@@ -199,14 +173,12 @@ async function carregarRepos() {
   try {
     const response = await fetch("https://api.github.com/users/juslli/repos?sort=updated&per_page=6");
 
-    if (!response.ok) {
-      throw new Error("Falha ao buscar dados da API do GitHub.");
-    }
+    if (!response.ok) throw new Error("Falha ao buscar API");
 
     const repos = await response.json();
 
     if (!Array.isArray(repos) || repos.length === 0) {
-      throw new Error("Nenhum repositório retornado.");
+      throw new Error("Sem repositórios");
     }
 
     const filtrados = repos
@@ -227,4 +199,4 @@ async function carregarRepos() {
   }
 }
 
-carregarRepos();
+document.addEventListener("DOMContentLoaded", carregarRepos);

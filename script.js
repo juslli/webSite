@@ -4,10 +4,20 @@ const toggle = document.querySelector(".menu-toggle")
 const menu = document.querySelector(".menu")
 
 toggle.onclick = () => {
-
 menu.classList.toggle("active")
-
 }
+
+// FECHAR MENU AO CLICAR EM LINK
+
+document.querySelectorAll(".menu a").forEach(link => {
+
+link.addEventListener("click", () => {
+
+menu.classList.remove("active")
+
+})
+
+})
 
 
 // ANIMAÇÃO AO ROLAR A PÁGINA
@@ -44,7 +54,7 @@ tsParticles.load("particles", {
 particles: {
 
 number: {
-value: 60
+value: 70
 },
 
 color: {
@@ -56,7 +66,7 @@ type: "circle"
 },
 
 opacity: {
-value: 0.5
+value: 0.4
 },
 
 size: {
@@ -65,9 +75,38 @@ value: 3
 
 move: {
 enable: true,
-speed: 1
+speed: 1,
+direction: "none",
+outModes: {
+default: "out"
+}
 }
 
+},
+
+interactivity: {
+
+events: {
+
+onHover: {
+enable: true,
+mode: "repulse"
+}
+
+},
+
+modes: {
+
+repulse: {
+distance: 80
+}
+
+}
+
+},
+
+background: {
+color: "transparent"
 }
 
 })
@@ -79,11 +118,25 @@ async function carregarRepos(){
 
 const reposContainer = document.getElementById("repos")
 
+if(!reposContainer) return
+
+reposContainer.innerHTML = ""
+
 try{
 
 const resposta = await fetch("https://api.github.com/users/juslli/repos")
 
-const repos = await resposta.json()
+if(!resposta.ok){
+throw new Error("Erro na API")
+}
+
+let repos = await resposta.json()
+
+// REMOVE FORKS
+repos = repos.filter(repo => !repo.fork)
+
+// ORDENA POR MAIS RECENTES
+repos.sort((a,b)=> new Date(b.updated_at) - new Date(a.updated_at))
 
 repos.slice(0,6).forEach(repo => {
 
@@ -107,7 +160,9 @@ reposContainer.appendChild(repoCard)
 
 }catch(erro){
 
-console.log("Erro ao carregar repositórios")
+console.log("Erro ao carregar repositórios", erro)
+
+reposContainer.innerHTML = "<p>Não foi possível carregar os repositórios.</p>"
 
 }
 

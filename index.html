@@ -1,171 +1,196 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Junio Dias Gianelli | Desenvolvedor Web</title>
 
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Junio Dias Gianelli | Desenvolvedor</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
-  <div id="particles"></div>
+<div id="particles"></div>
 
-  <header class="header">
-    <div class="logo">Junio Dias Gianelli</div>
+<header>
 
-    <div class="menu-toggle" id="menu-toggle">☰</div>
+<h1>Junio Dias Gianelli</h1>
 
-    <nav class="menu" id="menu">
-      <a href="#home">Início</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#github">GitHub</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </header>
+<div class="menu-toggle">☰</div>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-content reveal">
-        <p class="hero-tag">Portfólio de Desenvolvedor em Formação</p>
-        <h1>
-          Construindo projetos reais com
-          <span class="typing"></span>
-        </h1>
-        <p class="hero-text">
-          Sou Junio Dias Gianelli, desenvolvedor em formação, focado em evoluir todos os dias
-          através de projetos práticos, estudo constante e muita vontade de crescer na área.
-        </p>
+<nav class="menu">
 
-        <div class="hero-buttons">
-          <a href="#projetos" class="btn primary">Ver Projetos</a>
-          <a href="https://github.com/juslli" target="_blank" class="btn secondary">Meu GitHub</a>
-        </div>
-      </div>
-    </section>
+<a href="#home">Início</a>
+<a href="#sobre">Sobre</a>
+<a href="#projetos">Projetos</a>
+<a href="#jornada">Jornada</a>
+<a href="#contato">Contato</a>
 
-    <section id="sobre" class="section reveal">
-      <h2 class="section-title">Sobre Mim</h2>
-      <div class="about-box">
-        <p>
-          Estou estudando programação com foco em desenvolvimento web e back-end.
-          Tenho construído projetos com HTML, CSS e JavaScript para ganhar prática real
-          e evoluir como desenvolvedor.
-        </p>
+</nav>
 
-        <p>
-          Meu objetivo é transformar estudo em oportunidade, criar soluções úteis
-          e conquistar minha vaga na área de tecnologia.
-        </p>
-      </div>
-    </section>
+</header>
 
-    <section id="projetos" class="section reveal">
-      <h2 class="section-title">Meus Projetos</h2>
+<section class="hero" id="home">
 
-      <div class="projects-grid">
+<h2>Construindo projetos com <span class="typing"></span></h2>
 
-        <div class="project-card">
-          <h3>GitHub User Finder</h3>
-          <p>
-            Projeto que busca usuários do GitHub e exibe informações de perfil de forma visual e organizada.
-          </p>
-          <div class="project-buttons">
-            <a href="https://juslli.github.io/GitHub-User-Finder-pro/" target="_blank" class="btn primary">Ver Projeto</a>
-            <a href="https://github.com/juslli" target="_blank" class="btn secondary">Ver Código</a>
-          </div>
-        </div>
+<p>Transformando estudo em projetos reais.</p>
 
-        <div class="project-card">
-          <h3>To Do List Pro</h3>
-          <p>
-            Lista de tarefas com visual moderno para praticar lógica, manipulação do DOM e interatividade.
-          </p>
-          <div class="project-buttons">
-            <a href="https://juslli.github.io/todo-list-pro/" target="_blank" class="btn primary">Ver Projeto</a>
-            <a href="https://github.com/juslli" target="_blank" class="btn secondary">Ver Código</a>
-          </div>
-        </div>
+</section>
 
-        <div class="project-card">
-          <h3>Weather App</h3>
-          <p>
-            Aplicação de clima consumindo API para mostrar temperatura e condições do tempo em tempo real.
-          </p>
-          <div class="project-buttons">
-            <a href="https://juslli.github.io/weather-app/" target="_blank" class="btn primary">Ver Projeto</a>
-            <a href="https://github.com/juslli" target="_blank" class="btn secondary">Ver Código</a>
-          </div>
-        </div>
 
-        <div class="project-card">
-          <h3>Password Generator</h3>
-          <p>
-            Gerador de senhas criado para praticar lógica de programação e construção de interface funcional.
-          </p>
-          <div class="project-buttons">
-            <a href="https://juslli.github.io/password-generator/" target="_blank" class="btn primary">Ver Projeto</a>
-            <a href="https://github.com/juslli" target="_blank" class="btn secondary">Ver Código</a>
-          </div>
-        </div>
+<section id="sobre">
 
-      </div>
-    </section>
+<h2>Sobre Mim</h2>
 
-    <section id="github" class="section reveal">
-      <h2 class="section-title">Meus Repositórios</h2>
-      <p class="section-subtitle">
-        Alguns repositórios carregados automaticamente do meu GitHub.
-      </p>
+<p>
+Sou um desenvolvedor em formação focado em aprender programação através da prática.
+Tenho estudado HTML, CSS e JavaScript criando projetos reais para fortalecer
+minha lógica e evoluir na área de tecnologia.
+</p>
 
-      <div id="repos" class="repos-grid">
-        <p class="loading">Carregando repositórios...</p>
-      </div>
-    </section>
+</section>
 
-    <section id="contato" class="section reveal">
-      <h2 class="section-title">Contato</h2>
 
-      <div class="contact-box">
-        <a href="mailto:juniodiasgianelli@gmail.com" class="contact-item">
-          <span class="icon">📧</span>
-          <div>
-            <strong>Email</strong>
-            <p>junio212@gmail.com</p>
-          </div>
-        </a>
+<section id="projetos">
 
-        <a href="https://github.com/juslli" target="_blank" class="contact-item">
-          <span class="icon">💻</span>
-          <div>
-            <strong>GitHub</strong>
-            <p>github.com/juslli</p>
-          </div>
-        </a>
+<h2>Meus Projetos</h2>
 
-        <a href="https://www.linkedin.com/" target="_blank" class="contact-item">
-          <span class="icon">🔗</span>
-          <div>
-            <strong>LinkedIn</strong>
-            <p>https://www.linkedin.com/in/junio-dias-gianelli-60b80524a/</p>
-          </div>
-        </a>
-      </div>
-    </section>
-  </main>
+<div class="projetos-grid">
 
-  <footer class="footer">
-    <p>© 2026 Junio Dias Gianelli | Feito com estudo, prática e vontade de vencer.</p>
-  </footer>
+<div class="projeto">
 
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-  <script src="script.js"></script>
+<h3>Meu Portfólio</h3>
+
+<p>Site pessoal criado para apresentar minha evolução como desenvolvedor.</p>
+
+<a href="https://juslli.github.io/webSite/" target="_blank">Ver Projeto</a>
+
+<a href="https://github.com/juslli/webSite" target="_blank">Código</a>
+
+</div>
+
+
+<div class="projeto">
+
+<h3>GitHub User Finder</h3>
+
+<p>Aplicação que busca usuários do GitHub usando API.</p>
+
+<a href="https://juslli.github.io/GitHub-User-Finder-pro/" target="_blank">Ver Projeto</a>
+
+<a href="https://github.com/juslli/GitHub-User-Finder-pro" target="_blank">Código</a>
+
+</div>
+
+
+<div class="projeto">
+
+<h3>Weather App</h3>
+
+<p>Aplicação que mostra o clima em tempo real usando API.</p>
+
+<a href="https://juslli.github.io/weather-app/" target="_blank">Ver Projeto</a>
+
+<a href="https://github.com/juslli/weather-app" target="_blank">Código</a>
+
+</div>
+
+
+<div class="projeto">
+
+<h3>To Do List Pro</h3>
+
+<p>Lista de tarefas para organizar atividades do dia.</p>
+
+<a href="https://juslli.github.io/todo-list-pro/" target="_blank">Ver Projeto</a>
+
+<a href="https://github.com/juslli/todo-list-pro" target="_blank">Código</a>
+
+</div>
+
+
+<div class="projeto">
+
+<h3>Password Generator</h3>
+
+<p>Gerador de senhas criado com JavaScript.</p>
+
+<a href="https://juslli.github.io/password-generator/" target="_blank">Ver Projeto</a>
+
+<a href="https://github.com/juslli/password-generator" target="_blank">Código</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="jornada">
+
+<h2>Minha Jornada</h2>
+
+<div class="timeline">
+
+<div class="etapa">
+<h3>Início</h3>
+<p>Comecei estudando lógica de programação.</p>
+</div>
+
+<div class="etapa">
+<h3>HTML e CSS</h3>
+<p>Construção das primeiras páginas web.</p>
+</div>
+
+<div class="etapa">
+<h3>JavaScript</h3>
+<p>Projetos interativos e manipulação do DOM.</p>
+</div>
+
+<div class="etapa">
+<h3>APIs</h3>
+<p>Integração com dados reais.</p>
+</div>
+
+<div class="etapa">
+<h3>Próximo passo</h3>
+<p>Aprender back-end com Java.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="contato">
+
+<h2>Contato</h2>
+
+<div class="contato-box">
+
+<p>Email: <a href="mailto:njunio212@gmail.com">njunio212@gmail.com</a></p>
+
+<p>GitHub: <a href="https://github.com/juslli" target="_blank">github.com/juslli</a></p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 Junio Dias Gianelli</p>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
-
-

@@ -1,4 +1,3 @@
-// TEXTO DIGITANDO
 const words = [
   "projetos reais",
   "HTML",
@@ -47,8 +46,6 @@ function type() {
 
 type();
 
-
-// MENU MOBILE
 const toggle = document.getElementById("menu-toggle");
 const menu = document.getElementById("menu");
 
@@ -57,15 +54,13 @@ if (toggle && menu) {
     menu.classList.toggle("active");
   });
 
-  document.querySelectorAll(".menu a").forEach(link => {
+  document.querySelectorAll(".menu a").forEach((link) => {
     link.addEventListener("click", () => {
       menu.classList.remove("active");
     });
   });
 }
 
-
-// ANIMAÇÃO AO ROLAR A PÁGINA
 function reveal() {
   const reveals = document.querySelectorAll(".reveal");
 
@@ -83,8 +78,6 @@ function reveal() {
 window.addEventListener("scroll", reveal);
 reveal();
 
-
-// PARTICLES
 if (window.tsParticles) {
   tsParticles.load("particles", {
     fpsLimit: 60,
@@ -145,8 +138,6 @@ if (window.tsParticles) {
   });
 }
 
-
-// GITHUB REPOSITÓRIOS AUTOMÁTICOS
 async function carregarRepos() {
   const reposContainer = document.getElementById("repos");
   if (!reposContainer) return;

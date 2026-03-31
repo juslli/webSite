@@ -1,134 +1,39 @@
-const words = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "DOM",
-  "APIs",
-  "Projetos Reais",
-  "Java em breve"
-];
+const menuToggle = document.getElementById("menuToggle");
+const nav = document.getElementById("nav");
+const navLinks = document.querySelectorAll(".nav a");
 
-let i = 0;
-let j = 0;
-let currentWord = "";
-let deleting = false;
-
-function type() {
-  const typingElement = document.querySelector(".typing");
-  if (!typingElement) return;
-
-  currentWord = words[i];
-
-  if (deleting) {
-    j--;
-  } else {
-    j++;
-  }
-
-  typingElement.textContent = currentWord.substring(0, j);
-
-  if (!deleting && j === currentWord.length) {
-    deleting = true;
-    setTimeout(type, 1000);
-    return;
-  }
-
-  if (deleting && j === 0) {
-    deleting = false;
-    i++;
-
-    if (i === words.length) i = 0;
-  }
-
-  setTimeout(type, deleting ? 70 : 120);
+if (menuToggle && nav) {
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    nav.classList.toggle("open");
+  });
 }
 
-type();
-
-const toggle = document.querySelector(".menu-toggle");
-const menu = document.querySelector(".menu");
-
-if (toggle && menu) {
-  toggle.addEventListener("click", () => {
-    menu.classList.toggle("active");
-
-    const expanded = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!expanded));
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    if (menuToggle && nav) {
+      menuToggle.classList.remove("active");
+      nav.classList.remove("open");
+    }
   });
+});
 
-  document.querySelectorAll(".menu a").forEach((link) => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("active");
-      toggle.setAttribute("aria-expanded", "false");
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
     });
-  });
-}
+  },
+  {
+    threshold: 0.12,
+  }
+);
 
-function reveal() {
-  const reveals = document.querySelectorAll(".reveal");
-
-  reveals.forEach((element) => {
-    const windowHeight = window.innerHeight;
-    const elementTop = element.getBoundingClientRect().top;
-    const revealPoint = 120;
-
-    if (elementTop < windowHeight - revealPoint) {
-      element.classList.add("active");
-    }
-  });
-}
-
-window.addEventListener("scroll", reveal);
-reveal();
-
-if (window.tsParticles) {
-  tsParticles.load("particles", {
-    fullScreen: {
-      enable: false
-    },
-    background: {
-      color: "transparent"
-    },
-    particles: {
-      number: {
-        value: 45
-      },
-      color: {
-        value: ["#ff2f75", "#ff5f9a", "#ffffff"]
-      },
-      shape: {
-        type: "circle"
-      },
-      opacity: {
-        value: 0.28
-      },
-      size: {
-        value: { min: 1, max: 4 }
-      },
-      move: {
-        enable: true,
-        speed: 1.2
-      },
-      links: {
-        enable: true,
-        distance: 130,
-        color: "#8d123f",
-        opacity: 0.18,
-        width: 1
-      }
-    },
-    interactivity: {
-      events: {
-        onHover: {
-          enable: true,
-          mode: "repulse"
-        }
-      },
-      modes: {
-        repulse: {
-          distance: 70
-        }
-      }
-    }
-  });
-}
+revealElements.forEach((element) => {
+  revealObserver.observe(element);
+});

@@ -1,127 +1,1179 @@
-<!-- HERO -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Junio Dias Gianelli | Desenvolvedor Web</title>
+  <meta
+    name="description"
+    content="Portfólio de Junio Dias Gianelli, desenvolvedor web focado em projetos reais, interfaces bem construídas e evolução sólida para o back-end com Java."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #09090f;
+      --bg-soft: #11111a;
+      --surface: rgba(255, 255, 255, 0.04);
+      --surface-strong: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f5f7ff;
+      --muted: #b7bdd1;
+      --muted-2: #8f96ad;
+      --primary: #8b5cf6;
+      --primary-strong: #6d28d9;
+      --primary-soft: rgba(139, 92, 246, 0.14);
+      --success: #22c55e;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --container: 1180px;
+      --transition: 280ms ease;
+    }
 
-<h1>Junio Gianelli</h1>
-<h2>Desenvolvedor web focado em projetos funcionais, interfaces modernas e evolução real para o back-end com Java.</h2>
-<p>
-Eu não estudo só teoria. Eu construo, publico e melhoro até ficar profissional.
-Cada projeto aqui representa prática de verdade — código, erro, ajuste e evolução.
-</p>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<!-- BOTÕES -->
+    html {
+      scroll-behavior: smooth;
+    }
 
-<a href="#projetos">Ver projetos</a> <a href="https://github.com/juslli">GitHub</a> <a href="https://www.linkedin.com/in/junio-dias-gianelli-60b80524a/">LinkedIn</a> <a href="mailto:njunio212@gmail.com">Fale comigo</a>
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(139, 92, 246, 0.18), transparent 24%),
+        radial-gradient(circle at left center, rgba(91, 33, 182, 0.18), transparent 20%),
+        linear-gradient(180deg, #06060b 0%, #09090f 100%);
+      min-height: 100vh;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
 
-<!-- SOBRE -->
+    body.menu-open {
+      overflow: hidden;
+    }
 
-<section id="sobre">
-  <h2>Sobre mim</h2>
-  <p>
-  Sou um desenvolvedor web em construção, com foco atual em front-end e projetos autorais publicados.
-  Trabalho principalmente com HTML, CSS e JavaScript, criando interfaces responsivas, consumindo APIs e organizando código com clareza.
-  </p>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  <p>
-  Não sigo o caminho de só assistir aula e acumular conteúdo.
-  Meu foco é construir projetos reais, entender o que estou fazendo e evoluir com consistência.
-  </p>
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
 
-  <p>
-  Atualmente estou avançando para o back-end com Java, buscando dominar APIs REST, banco de dados e arquitetura sólida.
-  </p>
-</section>
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
+    .container {
+      width: min(92%, var(--container));
+      margin: 0 auto;
+    }
 
+    .blur-orb {
+      position: fixed;
+      inset: auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 999px;
+      background: rgba(139, 92, 246, 0.12);
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: -1;
+    }
 
-<section id="stack">
-  <h2>Stack atual</h2>
-  <p>HTML • CSS • JavaScript • DOM • APIs • Responsividade • Git • GitHub</p>
+    .blur-orb.one {
+      top: 6%;
+      right: -80px;
+    }
 
-  <h3>Em evolução</h3>
-  <p>Java • Spring Boot • APIs REST • Banco de dados • Arquitetura back-end</p>
-</section>
+    .blur-orb.two {
+      bottom: 12%;
+      left: -120px;
+    }
 
-<!-- PROJETOS -->
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(9, 9, 15, 0.76);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
 
-<section id="projetos">
-  <h2>Projetos</h2>
+    .header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-  <div class="projeto">
-    <h3>GitHub User Finder</h3>
-    <p>
-    Aplicação que consome a API do GitHub para buscar usuários e exibir informações relevantes de forma clara.
-    </p>
-    <p>
-    <strong>Destaques:</strong> consumo de API, tratamento de erro, renderização dinâmica e organização de interface.
-    </p>
-  </div>
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
 
-  <div class="projeto">
-    <h3>Weather App</h3>
-    <p>
-    Projeto focado em integração com API de clima, trazendo dados em tempo real com interface simples e direta.
-    </p>
-    <p>
-    <strong>Destaques:</strong> requisições assíncronas, manipulação de dados externos e responsividade.
-    </p>
-  </div>
+    .logo span {
+      color: var(--primary);
+    }
 
-  <div class="projeto">
-    <h3>To Do List Pro</h3>
-    <p>
-    Aplicação para gerenciamento de tarefas com foco em lógica de interface e experiência do usuário.
-    </p>
-    <p>
-    <strong>Destaques:</strong> manipulação do DOM, controle de estado e organização de funcionalidades.
-    </p>
-  </div>
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
 
-  <div class="projeto">
-    <h3>Password Generator</h3>
-    <p>
-    Gerador de senhas com regras personalizáveis, criado para praticar lógica e interatividade.
-    </p>
-    <p>
-    <strong>Destaques:</strong> lógica de geração, validação e interação com o usuário.
-    </p>
-  </div>
-</section>
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
 
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.96rem;
+      transition: var(--transition);
+      position: relative;
+    }
 
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
 
-<section id="diferencial">
-  <h2>Como eu trabalho</h2>
-  <p>
-  Eu não construo projeto só para "cumprir etapa".
-  Cada aplicação é feita para evoluir minha lógica, melhorar minha estrutura de código e chegar mais próximo de um nível profissional.
-  </p>
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
 
-  <p>
-  Prefiro consistência do que pressa.
-  Prefiro entender profundamente do que só copiar.
-  Prefiro publicar algo simples e funcional do que prometer algo que não existe.
-  </p>
-</section>
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
 
+    .menu-button {
+      display: none;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
 
+    .menu-button:hover {
+      border-color: rgba(139, 92, 246, 0.35);
+    }
 
-<section id="contato">
-  <h2>Contato</h2>
-  <p>
-  Estou desenvolvendo projetos com foco em crescimento real na área e busco oportunidades para evoluir como desenvolvedor.
-  </p>
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: var(--transition);
+      border: 1px solid transparent;
+      cursor: pointer;
+      gap: 10px;
+    }
 
-  <p>
-  Se você procura alguém com disciplina, consistência e vontade de construir algo sério, vamos conversar.
-  </p>
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      color: white;
+      box-shadow: 0 16px 38px rgba(109, 40, 217, 0.35);
+    }
 
-<a href="mailto:njunio212@gmail.com">Enviar email</a> <a href="https://github.com/juslli">GitHub</a> <a href="https://www.linkedin.com/in/junio-dias-gianelli-60b80524a/">LinkedIn</a> <a href="https://wa.me/5561994358531">WhatsApp</a>
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 44px rgba(109, 40, 217, 0.42);
+    }
 
-</section>
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      border-color: var(--border);
+    }
 
-<!-- FRASE FINAL -->
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(139, 92, 246, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+    }
 
-<footer>
-  <p>
-  Menos promessa. Mais projeto publicado.
-  </p>
-</footer>
+    .hero {
+      padding: 92px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .hero-left,
+    .hero-right {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      color: #ddd0ff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.9rem, 6vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      margin-bottom: 18px;
+      max-width: 760px;
+    }
+
+    .hero .headline-accent {
+      display: block;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.5;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-top: 18px;
+      max-width: 760px;
+    }
+
+    .hero p {
+      margin-top: 24px;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .hero-mini {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .hero-mini span {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .hero-card {
+      position: relative;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: rgba(139, 92, 246, 0.18);
+      filter: blur(24px);
+    }
+
+    .card-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #e7deff;
+      background: rgba(139, 92, 246, 0.16);
+      border: 1px solid rgba(139, 92, 246, 0.18);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-card h2 {
+      font-size: 1.45rem;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card > p {
+      color: var(--muted);
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-item {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .info-item strong {
+      display: block;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted-2);
+      margin-bottom: 6px;
+    }
+
+    .info-item span {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 42px 0 80px;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .section h2 {
+      font-size: clamp(2rem, 3.6vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel p {
+      color: var(--muted);
+    }
+
+    .panel p + p {
+      margin-top: 16px;
+    }
+
+    .quote-box {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(255,255,255,0.03));
+      border: 1px solid rgba(139, 92, 246, 0.16);
+      color: var(--text);
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .stack-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .stack-group h3 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      color: #dddff0;
+      font-size: 0.93rem;
+      font-weight: 600;
+    }
+
+    .projects-wrapper {
+      display: grid;
+      gap: 22px;
+    }
+
+    .project-featured {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-featured::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      right: -70px;
+      bottom: -80px;
+      background: rgba(139, 92, 246, 0.12);
+      filter: blur(26px);
+      pointer-events: none;
+    }
+
+    .project-kicker {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.18);
+      color: #b9f5c8;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .project-featured h3 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .project-featured p,
+    .project-card p {
+      color: var(--muted);
+    }
+
+    .project-points {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0;
+      list-style: none;
+    }
+
+    .project-points li {
+      padding-left: 18px;
+      position: relative;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .project-points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .project-meta {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .meta-box {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .meta-box strong {
+      display: block;
+      color: var(--muted-2);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .meta-box span {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(139, 92, 246, 0.24);
+    }
+
+    .project-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .project-card .mini-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      margin-bottom: 18px;
+    }
+
+    .project-card .mini-tags span {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .mindset-box {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(255,255,255,0.03));
+      border: 1px solid rgba(139, 92, 246, 0.16);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .mindset-box p {
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .mindset-box p + p {
+      margin-top: 16px;
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .footer {
+      padding: 18px 0 46px;
+    }
+
+    .footer-inner {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px;
+      color: var(--muted);
+    }
+
+    .footer strong {
+      color: var(--text);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .project-featured,
+      .about-grid,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .menu-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav {
+        position: fixed;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: rgba(9, 9, 15, 0.98);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: var(--transition);
+      }
+
+      .nav.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .header-cta {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 74px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.9rem;
+      }
+
+      .hero-actions,
+      .contact-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .panel,
+      .project-featured,
+      .project-card,
+      .mindset-box,
+      .contact-card,
+      .hero-card {
+        padding: 22px;
+      }
+
+      .section {
+        padding-bottom: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="blur-orb one"></div>
+  <div class="blur-orb two"></div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#home" class="logo">Junio<span>.</span></a>
+
+      <button class="menu-button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        ☰
+      </button>
+
+      <nav class="nav" id="nav">
+        <ul class="nav-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn-secondary header-cta" href="https://github.com/juslli" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left reveal">
+          <span class="eyebrow">Portfólio pessoal</span>
+          <h1>
+            Junio Dias Gianelli
+            <span class="headline-accent">
+              Desenvolvedor web focado em projetos reais, interfaces bem construídas e evolução sólida para o back-end com Java.
+            </span>
+          </h1>
+          <p>
+            Não gosto de parecer desenvolvedor só no discurso. Gosto de construir, publicar e refinar até o resultado transmitir presença de verdade. Meu foco é crescer com consistência, melhorar a qualidade do meu código e transformar prática em entrega real.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+            <a class="btn btn-secondary" href="https://github.com/juslli" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/junio-dias-gianelli-60b80524a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+
+          <div class="hero-mini">
+            <span>Front-end com identidade</span>
+            <span>Projetos autorais</span>
+            <span>Próximo passo: Java + Spring Boot</span>
+          </div>
+        </div>
+
+        <aside class="hero-right reveal">
+          <div class="hero-card">
+            <span class="card-label">Direção atual</span>
+            <h2>Menos aparência. Mais construção de verdade.</h2>
+            <p>
+              Estou criando uma base profissional forte: interfaces melhores, projetos mais consistentes e evolução séria para aplicações back-end com Java.
+            </p>
+
+            <div class="info-list">
+              <div class="info-item">
+                <strong>Foco atual</strong>
+                <span>Front-end, consumo de APIs e projetos publicados</span>
+              </div>
+
+              <div class="info-item">
+                <strong>Stack principal</strong>
+                <span>HTML, CSS, JavaScript, Git e GitHub</span>
+              </div>
+
+              <div class="info-item">
+                <strong>Próximo nível</strong>
+                <span>Java, Spring Boot, APIs REST e arquitetura back-end</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Sobre</span>
+          <h2>Construindo uma base forte, sem personagem.</h2>
+          <p>
+            Meu objetivo não é só estudar tecnologia. É usar estudo para construir presença profissional, projetos bem feitos e uma evolução sólida dentro da área.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="panel reveal">
+            <p>
+              Sou um desenvolvedor web que vem usando projetos próprios para transformar prática em resultado. Gosto de aprender construindo, corrigindo, refatorando e melhorando o que fiz até ficar em um nível que eu tenha orgulho de mostrar.
+            </p>
+            <p>
+              Hoje meu foco está em interfaces responsivas, consumo de APIs, organização de código e fortalecimento da minha base em JavaScript. Ao mesmo tempo, estou avançando para Java e Spring Boot para construir aplicações mais completas no back-end.
+            </p>
+          </div>
+
+          <div class="panel reveal">
+            <div class="quote-box">
+              Eu não quero só fazer site bonito. Quero construir projetos que mostrem evolução real, clareza técnica e capacidade de crescer forte dentro da área.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="stack">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Stack</span>
+          <h2>Tecnologias que sustentam minha evolução.</h2>
+          <p>
+            O foco aqui não é listar ferramenta por listar. É mostrar a base que já estou usando e a direção técnica que estou construindo.
+          </p>
+        </div>
+
+        <div class="panel reveal">
+          <div class="stack-grid">
+            <div class="stack-group">
+              <h3>Base atual</h3>
+              <div class="badge-list">
+                <span class="badge">HTML</span>
+                <span class="badge">CSS</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">DOM</span>
+                <span class="badge">Responsividade</span>
+                <span class="badge">Consumo de APIs</span>
+                <span class="badge">Git</span>
+                <span class="badge">GitHub</span>
+              </div>
+            </div>
+
+            <div class="stack-group">
+              <h3>Em evolução</h3>
+              <div class="badge-list">
+                <span class="badge">Java</span>
+                <span class="badge">Spring Boot</span>
+                <span class="badge">APIs REST</span>
+                <span class="badge">Banco de Dados</span>
+                <span class="badge">Arquitetura Back-end</span>
+                <span class="badge">Boas práticas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projetos">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Projetos</span>
+          <h2>Projetos que representam prática, não decoração.</h2>
+          <p>
+            Cada projeto aqui tem um papel na minha evolução: lógica, consumo de API, experiência visual, organização de código e construção de portfólio com direção real.
+          </p>
+        </div>
+
+        <div class="projects-wrapper">
+          <article class="project-featured reveal">
+            <div>
+              <span class="project-kicker">Projeto principal</span>
+              <h3>Finance Tracker API</h3>
+              <p>
+                Projeto back-end em Java com Spring Boot voltado para organização financeira e construção de uma base mais profissional no meu portfólio. Ele representa minha transição para aplicações mais robustas, com estrutura melhor, regras mais claras e foco em arquitetura de verdade.
+              </p>
+
+              <ul class="project-points">
+                <li>Fortalecimento da minha base em Java e APIs REST</li>
+                <li>Projeto com mais peso técnico para o portfólio</li>
+                <li>Direção clara para evolução profissional no back-end</li>
+              </ul>
+
+              <div class="project-links">
+                <a class="btn btn-primary" href="https://github.com/juslli/finance-tracker-api" target="_blank" rel="noopener noreferrer">Ver repositório</a>
+              </div>
+            </div>
+
+            <div class="project-meta">
+              <div class="meta-box">
+                <strong>Stack</strong>
+                <span>Java, Spring Boot, API REST</span>
+              </div>
+              <div class="meta-box">
+                <strong>Objetivo</strong>
+                <span>Portfólio back-end mais forte</span>
+              </div>
+              <div class="meta-box">
+                <strong>Valor</strong>
+                <span>Marca meu avanço para um nível mais profissional</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="project-grid">
+            <article class="project-card reveal">
+              <h3>GitHub User Finder</h3>
+              <p>
+                Aplicação que consome a API do GitHub para buscar usuários e exibir informações de forma clara, prática e dinâmica.
+              </p>
+              <div class="mini-tags">
+                <span>API</span>
+                <span>JavaScript</span>
+                <span>UI dinâmica</span>
+              </div>
+              <div class="project-links">
+                <a class="btn btn-secondary" href="https://github.com/juslli" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <h3>Weather App</h3>
+              <p>
+                Projeto focado em integração com API externa, leitura de dados climáticos e apresentação visual limpa em tempo real.
+              </p>
+              <div class="mini-tags">
+                <span>API externa</span>
+                <span>Assíncrono</span>
+                <span>Responsivo</span>
+              </div>
+              <div class="project-links">
+                <a class="btn btn-secondary" href="https://github.com/juslli" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <h3>To Do List</h3>
+              <p>
+                Aplicação criada para praticar lógica de interface, controle de tarefas e organização visual com uma experiência direta.
+              </p>
+              <div class="mini-tags">
+                <span>DOM</span>
+                <span>Lógica</span>
+                <span>Usabilidade</span>
+              </div>
+              <div class="project-links">
+                <a class="btn btn-secondary" href="https://github.com/juslli" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="mindset">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Postura</span>
+          <h2>O que eu quero transmitir com meu trabalho.</h2>
+        </div>
+
+        <div class="mindset-box reveal">
+          <p>
+            Eu prefiro consistência a pressa. Prefiro entender profundamente a só copiar. Prefiro publicar algo simples e funcional a vender uma imagem maior do que a minha entrega.
+          </p>
+          <p>
+            Meu objetivo é crescer do jeito certo: construindo projeto por projeto, melhorando minha estrutura, fortalecendo minha base técnica e ficando pronto para oportunidades reais.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Contato</span>
+          <h2>Aberto para oportunidade, conexão e crescimento real.</h2>
+          <p>
+            Estou buscando espaço para evoluir como desenvolvedor, contribuir com projetos reais e transformar disciplina em trajetória profissional forte.
+          </p>
+        </div>
+
+        <div class="contact-card reveal">
+          <div>
+            <p>
+              Se você procura alguém com vontade de crescer, consistência para construir e compromisso com evolução de verdade, vamos conversar.
+            </p>
+          </div>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:njunio212@gmail.com">Email</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/junio-dias-gianelli-60b80524a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn btn-secondary" href="https://wa.me/5561994358531" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p><strong>Junio Dias Gianelli</strong> — Menos promessa. Mais projeto publicado.</p>
+      <p>© 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-button');
+    const nav = document.querySelector('.nav');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('main section[id]');
+    const reveals = document.querySelectorAll('.reveal');
+
+    if (menuButton && nav) {
+      menuButton.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        document.body.classList.toggle('menu-open', isOpen);
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        menuButton.textContent = isOpen ? '✕' : '☰';
+      });
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          document.body.classList.remove('menu-open');
+          menuButton.setAttribute('aria-expanded', 'false');
+          menuButton.textContent = '☰';
+        }
+      });
+    });
+
+    function setActiveLink() {
+      let currentId = '';
+
+      sections.forEach((section) => {
+        const top = section.offsetTop - 140;
+        const height = section.offsetHeight;
+
+        if (window.scrollY >= top && window.scrollY < top + height) {
+          currentId = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    function revealOnScroll() {
+      const trigger = window.innerHeight * 0.88;
+
+      reveals.forEach((element) => {
+        const top = element.getBoundingClientRect().top;
+        if (top < trigger) {
+          element.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      setActiveLink();
+      revealOnScroll();
+    });
+
+    window.addEventListener('load', () => {
+      setActiveLink();
+      revealOnScroll();
+    });
+  </script>
+</body>
+</html>
